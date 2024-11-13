@@ -1,0 +1,27 @@
+===========metode tanpa registry=============
+echo "Running build steps 1/3: Pull Production Copy"
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND "cd hr-satoriagroup && ls && git checkout development && git reset --hard HEAD && git pull origin development"
+
+echo "Running build steps 2/3: Build Prod Docker Image"
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND "cd hr-satoriagroup && docker build -t hris:latest ."
+
+echo "Running build steps 3/3: Pull & Run Docker Image on Staging"
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND "docker stop hris && docker container rm hris" || true
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND 'docker run -d --name hris -p 1001:3001 hris:latest'
+
+===========metode dengan registry=============
+echo "Running build steps 1/3: Pull Local Copy"
+git checkout development
+git reset --hard HEAD
+git pull origin development
+
+echo "Running build steps 2/3: Build Prod Docker Image"
+docker build -t hris-api:latest .
+docker tag hris-api:latest localhost:5012/hris-api:latest
+docker push localhost:5012/hris-api:latest
+
+echo "Running build steps 3/3: Pull & Run Docker Image on Staging"
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND "docker pull registry.satoriagroup.co.id/hris-api:latest"
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND "docker stop hris-api && docker container rm hris-api" || true
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND "echo $(pwd)/data:/hris-api/public"
+ssh -o StrictHostKeyChecking=no $PROD_SSH_COMMAND 'docker run -d --name hris-api -p 1000:3000 -v "$(pwd)/data:/hris-api/public" registry.satoriagroup.co.id/hris-api:latest'
