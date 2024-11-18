@@ -1,4 +1,12 @@
 react-native-vision-camera
 react-native-image-picker
 react-native-pdf
+react-native-webview
+@nozbe/watermelondb
+https://watermelondb.dev/docs/Installation
+react-native-notifications
+react-native-toast-message
+react-native-date-picker
+react-native-ui-datepicker
+react-native-floating-action
 
