@@ -15,12 +15,7 @@ docker image rm [idimage]
 =====untuk menghapus image docker=======
 docker run -d --name hris-app -p 1000:3001 dodikrismawan/hris
 =====untuk bikin container + running=========
-docker run --name example \
-    --rm -d \
-    -e POSTGRES_PASSWORD=password \
-    -e POSTGRES_DB=db -e POSTGRES_USER=user \
-    -p 5499:5432 \
-    postgres:14.6-bullseye
+docker run --name example --rm -d -e POSTGRES_PASSWORD=password -e POSTGRES_DB=db -e POSTGRES_USER=user -p 5499:5432 postgres:14.6-bullseye
 =====untuk bikin container + running postgree=========
 docker run -d --name hris-api -p 1000:3000 -v "$(pwd)/data:/hris-api/public" hris-api:latest 
 ====untuk proses mouting path file upload volume============
