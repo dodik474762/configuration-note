@@ -10,6 +10,7 @@ react-native-date-picker
 react-native-ui-datepicker
 react-native-floating-action
 @react-native-picker/picker
+@react-native-community/checkbox
 
 
 
