@@ -14,8 +14,3 @@ react-native-paper //material design template
 npm install @react-navigation/native //routing
 npm install react-native-screens react-native-safe-area-context //routing common
 npm install @react-navigation/stack //routing fragment
-
-
-
-configuration
-https://reactnative.dev/contributing/how-to-build-from-source
