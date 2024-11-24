@@ -15,3 +15,9 @@ npm install @react-navigation/native //routing
 npm install react-native-screens react-native-safe-area-context //routing common
 npm install @react-navigation/stack //routing fragment
 npm install react-native-gesture-handler
+
+
+//untuk create keystore
+keytool -genkeypair -v -keystore my-release-key.keystore -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=your_name, OU=your_org, O=your_org, L=your_city, ST=your_state, C=US" -storepass your_store_password -keypass your_key_password
+#example
+keytool -genkeypair -v -keystore keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Dodik, OU=IT, O=IT, L=Blitar, ST=east_java, C=ID" -storepass starterapp -keypass starterapp
