@@ -11,10 +11,13 @@ react-native-ui-datepicker
 react-native-floating-action
 @react-native-picker/picker
 react-native-paper //material design template
-npm install @react-navigation/native //routing
-npm install react-native-screens react-native-safe-area-context //routing common
-npm install @react-navigation/stack //routing fragment
-npm install react-native-gesture-handler
+@react-navigation/native //routing
+react-native-screens react-native-safe-area-context //routing common
+@react-navigation/stack //routing fragment
+react-native-gesture-handler //routing for gesture optional to install
+react-native-get-location 
+expo-sqlite-orm //local database sqlite orm
+npm install --save @notifee/react-native //for notification
 
 
 //untuk create keystore
