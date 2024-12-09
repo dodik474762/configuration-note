@@ -1,3 +1,6 @@
 PGPASSWORD="Satoria@2024" pg_dump -U SatoriaAdmin -h 127.0.0.1 -p 5499 hris > /backup/hris.pgsql
 docker exec -it <container> sh -c 'pg_dump -U postgres <mydb> > /pg-snaps/<mydb>_$(date).sql'
 psql -U username -d dbname < filename.sql
+
+untuk restore data
+psql -h 10.252.22.228 -p 5499 -U SatoriaAdmin -d hris -f C://hris-1733500800022.sql
