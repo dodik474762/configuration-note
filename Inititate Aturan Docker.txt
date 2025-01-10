@@ -19,6 +19,8 @@ docker run --name example --rm -d -e POSTGRES_PASSWORD=password -e POSTGRES_DB=d
 =====untuk bikin container + running postgree=========
 docker run -d --name hris-api -p 1000:3000 -v "$(pwd)/data:/hris-api/public" hris-api:latest 
 ====untuk proses mouting path file upload volume============
+docker exec -it dplprod bash
+=====untuk masuk ke docker containernya========
 
 
 ====jenkins===
