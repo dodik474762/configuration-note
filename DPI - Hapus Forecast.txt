@@ -1,0 +1,28 @@
+SELECT f.id 
+, p.id as project_id
+, p.deleted as p_deleted
+, f.deleted as f_deleted
+FROM `forecast` as f
+join project as p
+	on p.forecast= f.id
+ where f.deleted is null and p.deleted is not null;
+
+SELECT * FROM `project` where id in (7,10, 12, 13, 16, 17, 21, 52, 72);
+
+SELECT * FROM `visit_plan` where forecast in (9, 13, 15, 16, 19, 20, 24, 54, 80);
+
+SELECT * FROM `official_travel` where visit_plan in (9, 13, 16, 19, 20, 24, 54);
+
+SELECT * FROM `official_travel_realisation` where official_travel in (56, 60, 63, 66, 94, 123);
+
+SELECT * FROM `reimbursement` where forecast in (9, 13, 15, 16, 19, 20, 24, 54, 80);
+
+SELECT * FROM `official_travel_confirm` where official_travel in (56, 60, 63, 66, 94, 123);
+
+SELECT * FROM `purchase_order` where project in (7,10, 12, 13, 16, 17, 21, 52, 72);
+
+SELECT * FROM `invoice` where project in (7,10, 12, 13, 16, 17, 21, 52, 72);
+
+SELECT * FROM `forecast` where id in (9, 13, 15, 16, 19, 20, 24, 54, 80);
+
+SELECT * FROM `budgeting` where forecast in (9, 13, 15, 16, 19, 20, 24, 54, 80);
